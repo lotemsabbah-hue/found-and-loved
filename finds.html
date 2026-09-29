@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Found & Loved</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f3ef;
+      color: #222;
+    }
+
+    .container {
+      max-width: 520px;
+      margin: auto;
+      padding: 30px 18px 50px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .logo {
+      font-family: Georgia, serif;
+      font-size: 34px;
+    }
+
+    .tagline {
+      margin-top: 6px;
+      font-size: 11px;
+      letter-spacing: 1px;
+      color: #888;
+    }
+
+    .post-title {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .post-title h1 {
+      font-size: 23px;
+      margin-bottom: 8px;
+    }
+
+    .post-title p {
+      color: #777;
+      font-size: 14px;
+    }
+
+    .products {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .product {
+      background: white;
+      border-radius: 22px;
+      padding: 14px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+    }
+
+    .product img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 16px;
+    }
+
+    .product h2 {
+      font-size: 18px;
+      margin: 16px 5px 12px;
+    }
+
+    .product-link {
+      display: block;
+      background: #222;
+      color: white;
+      text-decoration: none;
+      text-align: center;
+      padding: 14px;
+      border-radius: 12px;
+      font-weight: bold;
+    }
+
+    .more {
+      margin-top: 45px;
+      text-align: center;
+      border-top: 1px solid #ddd5ce;
+      padding-top: 35px;
+    }
+
+    .more h3 {
+      margin-bottom: 15px;
+    }
+
+    .more a {
+      display: inline-block;
+      color: #222;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
+    .disclosure {
+      margin-top: 45px;
+      text-align: center;
+      color: #999;
+      font-size: 11px;
+      line-height: 1.5;
+    }
+
+    .error {
+      text-align: center;
+      padding: 50px 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+<main class="container">
+
+  <header>
+    <div class="logo">Found & Loved</div>
+    <div class="tagline">
+      THINGS WORTH FINDING • THINGS YOU'LL LOVE
+    </div>
+  </header>
+
+  <section class="post-title">
+    <h1 id="postTitle"></h1>
+    <p id="postDescription"></p>
+  </section>
+
+  <section class="products" id="products"></section>
+
+  <section class="more">
+    <h3>אהבת? יש עוד ❤️</h3>
+    <a href="index.html">
+      למוצרים נוספים שפרסמתי ←
+    </a>
+  </section>
+
+  <div class="disclosure">
+    חלק מהקישורים באתר הם קישורי שותפים.
+    ייתכן שאקבל עמלה על רכישה, ללא עלות נוספת עבורך.
+  </div>
+
+</main>
+
+
+<script>
+
+const posts = {
+
+  kitchen01: {
+
+    title: "המוצרים מהסרטון ✨",
+
+    description: "כל המציאות מהסרטון במקום אחד",
+
+    products: [
+
+      {
+        name: "מתקן למכסי סירים וכפות",
+        image: "https://placehold.co/600x600?text=Product+1",
+        link: "#"
+      },
+
+      {
+        name: "מברשת ניקוי שימושית",
+        image: "https://placehold.co/600x600?text=Product+2",
+        link: "#"
+      },
+
+      {
+        name: "מסננת נצמדת לסיר",
+        image: "https://placehold.co/600x600?text=Product+3",
+        link: "#"
+      }
+
+    ]
+  },
+
+
+  car01: {
+
+    title: "המציאות שלי לרכב 🚗",
+
+    description: "כל המוצרים מהסרטון במקום אחד",
+
+    products: [
+
+      {
+        name: "מחזיק טלפון לרכב",
+        image: "https://placehold.co/600x600?text=Car+1",
+        link: "#"
+      },
+
+      {
+        name: "ארגונית לרכב",
+        image: "https://placehold.co/600x600?text=Car+2",
+        link: "#"
+      }
+
+    ]
+  }
+
+};
+
+
+const params = new URLSearchParams(window.location.search);
+
+const postID = params.get("post");
+
+const post = posts[postID];
+
+const productsContainer = document.getElementById("products");
+
+
+if (!post) {
+
+  document.querySelector(".post-title").innerHTML = `
+    <div class="error">
+      <h2>לא מצאנו את המוצרים 😕</h2>
+      <p>נסי לחזור לקישור שקיבלת.</p>
+    </div>
+  `;
+
+  document.querySelector(".more").style.display = "none";
+
+} else {
+
+  document.getElementById("postTitle").textContent = post.title;
+
+  document.getElementById("postDescription").textContent =
+    post.description;
+
+
+  post.products.forEach(product => {
+
+    const card = document.createElement("article");
+
+    card.className = "product";
+
+    card.innerHTML = `
+      <img
+        src="${product.image}"
+        alt="${product.name}"
+        loading="lazy"
+      >
+
+      <h2>${product.name}</h2>
+
+      <a
+        class="product-link"
+        href="${product.link}"
+        target="_blank"
+        rel="noopener sponsored"
+      >
+        למוצר ב-AliExpress ←
+      </a>
+    `;
+
+    productsContainer.appendChild(card);
+
+  });
+
+}
+
+</script>
+
+</body>
+</html>
