@@ -21,140 +21,109 @@
     }
 
     .container {
-      width: 100%;
       max-width: 520px;
       margin: auto;
-      padding: 30px 18px 50px;
+      padding: 40px 18px 60px;
     }
 
     header {
       text-align: center;
-      margin-bottom: 35px;
+      margin-bottom: 40px;
     }
 
     .logo {
       font-family: Georgia, serif;
-      font-size: 34px;
-      font-weight: 500;
-      letter-spacing: 1px;
+      font-size: 38px;
     }
 
     .tagline {
-      margin-top: 7px;
+      margin-top: 8px;
       font-size: 11px;
-      letter-spacing: 1px;
       color: #888;
+      letter-spacing: 1px;
     }
 
-    .post-title {
+    .post-header {
       text-align: center;
       margin-bottom: 30px;
     }
 
-    .post-title h1 {
-      font-size: 23px;
+    .post-header h1 {
+      font-size: 24px;
       margin-bottom: 8px;
     }
 
-    .post-title p {
+    .post-header p {
       color: #777;
-      font-size: 14px;
-      line-height: 1.6;
     }
 
     .products {
       display: flex;
       flex-direction: column;
-      gap: 24px;
+      gap: 22px;
     }
 
     .product {
-      background: #fff;
-      border-radius: 22px;
+      background: white;
       padding: 14px;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+      border-radius: 22px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.06);
     }
 
     .product img {
-      display: block;
       width: 100%;
       aspect-ratio: 1 / 1;
       object-fit: cover;
       border-radius: 16px;
-      background: #eee;
+      display: block;
     }
 
     .product h2 {
       font-size: 18px;
-      line-height: 1.5;
-      margin: 16px 5px 12px;
+      margin: 16px 5px;
     }
 
-    .product-link {
+    .product a {
       display: block;
-      width: 100%;
       background: #222;
-      color: #fff;
-      text-decoration: none;
-      text-align: center;
+      color: white;
       padding: 14px;
       border-radius: 12px;
+      text-align: center;
+      text-decoration: none;
       font-weight: bold;
-      transition: 0.2s;
-    }
-
-    .product-link:hover {
-      opacity: 0.85;
     }
 
     .more {
-      margin-top: 45px;
       text-align: center;
-      border-top: 1px solid #ddd5ce;
-      padding-top: 35px;
+      margin-top: 45px;
+      padding-top: 30px;
+      border-top: 1px solid #ddd;
     }
 
-    .more h3 {
-      font-size: 19px;
-      margin-bottom: 15px;
+    .more p {
+      font-weight: bold;
+      margin-bottom: 12px;
     }
 
     .more a {
-      display: inline-block;
       color: #222;
       font-weight: bold;
-      text-decoration: underline;
     }
 
-    .disclosure {
+    .error {
+      background: white;
+      padding: 35px 20px;
+      border-radius: 20px;
+      text-align: center;
+    }
+
+    footer {
       margin-top: 45px;
       text-align: center;
       color: #999;
       font-size: 11px;
       line-height: 1.6;
-    }
-
-    .error {
-      text-align: center;
-      background: #fff;
-      padding: 35px 20px;
-      border-radius: 20px;
-    }
-
-    .error h2 {
-      margin-bottom: 10px;
-    }
-
-    .error p {
-      color: #777;
-      line-height: 1.6;
-    }
-
-    .back-home {
-      display: inline-block;
-      margin-top: 20px;
-      color: #222;
-      font-weight: bold;
     }
   </style>
 </head>
@@ -162,139 +131,89 @@
 
 <body>
 
-  <main class="container">
+<main class="container">
 
-    <header>
-      <div class="logo">Found & Loved</div>
+  <header>
+    <div class="logo">Found & Loved</div>
 
-      <div class="tagline">
-        THINGS WORTH FINDING • THINGS YOU'LL LOVE
-      </div>
-    </header>
-
-
-    <section class="post-title" id="postHeader">
-
-      <h1 id="postTitle"></h1>
-
-      <p id="postDescription"></p>
-
-    </section>
-
-
-    <section
-      class="products"
-      id="products">
-    </section>
-
-
-    <section
-      class="more"
-      id="moreSection">
-
-      <h3>אהבת? יש עוד ❤️</h3>
-
-      <a href="index.html">
-        למוצרים נוספים שפרסמתי ←
-      </a>
-
-    </section>
-
-
-    <div class="disclosure">
-      חלק מהקישורים באתר הם קישורי שותפים.
-      ייתכן שאקבל עמלה על רכישה דרך הקישורים,
-      ללא עלות נוספת עבורך.
+    <div class="tagline">
+      THINGS WORTH FINDING • THINGS YOU'LL LOVE
     </div>
-
-  </main>
-
-
-  <!-- מאגר הפוסטים והמוצרים -->
-  <script src="products.js"></script>
+  </header>
 
 
-  <script>
-
-    // קבלת מזהה הפוסט מהכתובת
-    const params =
-      new URLSearchParams(window.location.search);
-
-    const postID =
-      params.get("post");
+  <div id="content"></div>
 
 
-    // חיפוש הפוסט בתוך products.js
-    const post =
-      typeof posts !== "undefined"
-        ? posts[postID]
-        : null;
+  <footer>
+    חלק מהקישורים באתר הם קישורי שותפים.
+    ייתכן שאקבל עמלה על רכישה דרך הקישורים,
+    ללא עלות נוספת עבורך.
+  </footer>
+
+</main>
 
 
-    const productsContainer =
-      document.getElementById("products");
-
-    const postHeader =
-      document.getElementById("postHeader");
-
-    const moreSection =
-      document.getElementById("moreSection");
+<!-- טוען את מאגר המוצרים -->
+<script src="./products.js"></script>
 
 
-    // אם הפוסט לא קיים
-    if (!post) {
+<script>
 
-      postHeader.innerHTML = `
-        <div class="error">
+  const content =
+    document.getElementById("content");
 
-          <h2>
-            לא מצאנו את המוצרים 😕
-          </h2>
+  const params =
+    new URLSearchParams(window.location.search);
 
-          <p>
-            יכול להיות שהקישור אינו תקין
-            או שהפוסט כבר לא זמין.
-          </p>
+  const postId =
+    params.get("post");
 
-          <a
-            class="back-home"
-            href="index.html">
+
+  // בדיקה שהמאגר נטען ושהפוסט קיים
+  if (
+    typeof posts === "undefined" ||
+    !postId ||
+    !posts[postId]
+  ) {
+
+    content.innerHTML = `
+      <div class="error">
+
+        <h2>לא מצאנו את המוצרים 😕</h2>
+
+        <p style="margin-top:10px;">
+          יכול להיות שהקישור אינו תקין.
+        </p>
+
+        <p style="margin-top:20px;">
+          <a href="/">
             לכל המוצרים ←
           </a>
+        </p>
 
-        </div>
-      `;
+      </div>
+    `;
 
-      moreSection.style.display = "none";
+  }
 
-    }
+  else {
 
-
-    // אם הפוסט קיים
-    else {
-
-      document.getElementById("postTitle")
-        .textContent = post.title;
-
-      document.getElementById("postDescription")
-        .textContent = post.description;
+    const selectedPost =
+      posts[postId];
 
 
-      // יצירת כרטיס לכל מוצר
-      post.products.forEach(product => {
-
-        const card =
-          document.createElement("article");
-
-        card.className = "product";
+    let productsHTML = "";
 
 
-        card.innerHTML = `
+    selectedPost.products.forEach(product => {
+
+      productsHTML += `
+        <article class="product">
 
           <img
             src="${product.image}"
             alt="${product.name}"
-            loading="lazy"
           >
 
           <h2>
@@ -302,7 +221,6 @@
           </h2>
 
           <a
-            class="product-link"
             href="${product.link}"
             target="_blank"
             rel="noopener sponsored">
@@ -311,18 +229,51 @@
 
           </a>
 
-        `;
+        </article>
+      `;
+
+    });
 
 
-        productsContainer
-          .appendChild(card);
+    content.innerHTML = `
 
-      });
+      <section class="post-header">
 
-    }
+        <h1>
+          ${selectedPost.title}
+        </h1>
 
-  </script>
+        <p>
+          ${selectedPost.description}
+        </p>
+
+      </section>
+
+
+      <section class="products">
+
+        ${productsHTML}
+
+      </section>
+
+
+      <section class="more">
+
+        <p>
+          אהבת? יש עוד ❤️
+        </p>
+
+        <a href="/">
+          למוצרים נוספים שפרסמתי ←
+        </a>
+
+      </section>
+
+    `;
+
+  }
+
+</script>
 
 </body>
-
 </html>
