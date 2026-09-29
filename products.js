@@ -7,16 +7,19 @@ const posts = {
     products: [
       {
         name: "מתקן למכסי סירים וכפות",
+        category: "kitchen",
         image: "https://placehold.co/600x600?text=Product+1",
         link: "#"
       },
       {
         name: "מברשת ניקוי שימושית",
+        category: "home",
         image: "https://placehold.co/600x600?text=Product+2",
         link: "#"
       },
       {
         name: "מסננת נצמדת לסיר",
+        category: "kitchen",
         image: "https://placehold.co/600x600?text=Product+3",
         link: "#"
       }
@@ -30,11 +33,13 @@ const posts = {
     products: [
       {
         name: "מחזיק טלפון לרכב",
+        category: "car",
         image: "https://placehold.co/600x600?text=Car+1",
         link: "#"
       },
       {
         name: "ארגונית לרכב",
+        category: "car",
         image: "https://placehold.co/600x600?text=Car+2",
         link: "#"
       }
