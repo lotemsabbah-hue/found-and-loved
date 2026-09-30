@@ -1,28 +1,604 @@
-<header class="brand-header">
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
 
-  <div class="brand-logo">
-    <div class="roof-logo">
-      <span class="roof-line"></span>
-      <span class="roof-heart">♡</span>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Found & Loved</title>
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f4f1;
+      color: #222;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: auto;
+      padding: 25px 18px 60px;
+    }
+
+
+    /* =========================
+       LOGO
+    ========================= */
+
+    .brand-header {
+      text-align: center;
+      padding: 20px 5px 30px;
+    }
+
+    .brand-logo {
+      display: inline-block;
+    }
+
+    .logo-icon {
+      position: relative;
+      width: 100px;
+      height: 55px;
+      margin: 0 auto 2px;
+    }
+
+    .roof-left,
+    .roof-right {
+      position: absolute;
+      top: 25px;
+      width: 57px;
+      height: 3px;
+      background: #d99a8b;
+    }
+
+    .roof-left {
+      left: 2px;
+      transform: rotate(-35deg);
+    }
+
+    .roof-right {
+      right: 2px;
+      transform: rotate(35deg);
+    }
+
+    .logo-heart {
+      position: absolute;
+      right: 0;
+      top: 0;
+      font-size: 29px;
+      color: #d99a8b;
+      transform: rotate(8deg);
+    }
+
+    .brand-name {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 42px;
+      font-weight: 500;
+      letter-spacing: -2px;
+      direction: ltr;
+      white-space: nowrap;
+    }
+
+    .brand-name .amp {
+      color: #d99a8b;
+      font-style: italic;
+      padding: 0 3px;
+    }
+
+    .brand-divider {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin: 13px 0 8px;
+    }
+
+    .brand-divider .line {
+      height: 1px;
+      width: 65px;
+      background: #d99a8b;
+    }
+
+    .brand-divider .heart {
+      color: #d99a8b;
+      font-size: 12px;
+    }
+
+    .brand-tagline {
+      direction: ltr;
+      font-size: 10px;
+      letter-spacing: 5px;
+      color: #444;
+    }
+
+    .brand-tagline span {
+      color: #d99a8b;
+    }
+
+    .brand-description {
+      margin-top: 20px;
+      color: #777;
+      font-size: 15px;
+    }
+
+
+    /* =========================
+       CATEGORIES
+    ========================= */
+
+    .categories {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 5px 0 35px;
+    }
+
+    .category-btn {
+      border: 1px solid #eaded8;
+      background: #fff;
+      color: #555;
+      padding: 10px 16px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 13px;
+      transition: 0.2s;
+    }
+
+    .category-btn:hover {
+      background: #f2e5e0;
+    }
+
+    .category-btn.active {
+      background: #d99a8b;
+      color: white;
+      border-color: #d99a8b;
+    }
+
+
+    /* =========================
+       TITLE
+    ========================= */
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .section-title h1 {
+      font-size: 22px;
+      margin-bottom: 7px;
+    }
+
+    .section-title p {
+      color: #888;
+      font-size: 14px;
+    }
+
+
+    /* =========================
+       PRODUCTS
+    ========================= */
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    .product {
+      background: white;
+      padding: 10px;
+      border-radius: 20px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+      overflow: hidden;
+    }
+
+    .product img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 15px;
+      display: block;
+    }
+
+    .product h2 {
+      font-size: 15px;
+      line-height: 1.4;
+      margin: 12px 4px;
+      min-height: 42px;
+    }
+
+    .product a {
+      display: block;
+      background: #222;
+      color: white;
+      padding: 11px 5px;
+      border-radius: 11px;
+      text-align: center;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .product a:hover {
+      background: #d99a8b;
+    }
+
+
+    /* =========================
+       EMPTY STATE
+    ========================= */
+
+    .empty {
+      grid-column: 1 / -1;
+      background: white;
+      padding: 35px 20px;
+      border-radius: 20px;
+      text-align: center;
+      color: #777;
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      padding-top: 25px;
+      border-top: 1px solid #eaded8;
+      color: #aaa;
+      font-size: 11px;
+    }
+
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 480px) {
+
+      .container {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+
+      .brand-name {
+        font-size: 36px;
+      }
+
+      .brand-tagline {
+        font-size: 9px;
+        letter-spacing: 4px;
+      }
+
+      .categories {
+        gap: 8px;
+      }
+
+      .category-btn {
+        padding: 9px 13px;
+        font-size: 12px;
+      }
+
+      .products {
+        gap: 11px;
+      }
+
+      .product {
+        padding: 8px;
+        border-radius: 17px;
+      }
+
+      .product h2 {
+        font-size: 14px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+<main class="container">
+
+
+  <!-- LOGO -->
+
+  <header class="brand-header">
+
+    <div class="brand-logo">
+
+      <div class="logo-icon">
+        <span class="roof-left"></span>
+        <span class="roof-right"></span>
+        <span class="logo-heart">♡</span>
+      </div>
+
+      <div class="brand-name">
+        Found <span class="amp">&</span> Loved
+      </div>
+
+      <div class="brand-divider">
+        <span class="line"></span>
+        <span class="heart">♥</span>
+        <span class="line"></span>
+      </div>
+
+      <div class="brand-tagline">
+        HOME <span>♥</span> LIFE
+      </div>
+
     </div>
 
-    <div class="brand-name">
-      Found <span>&</span> Loved
-    </div>
+    <p class="brand-description">
+      כל מה ששווה למצוא ולאהוב ✨
+    </p>
 
-    <div class="brand-line">
-      <span></span>
-      <span class="heart">♥</span>
-      <span></span>
-    </div>
+  </header>
 
-    <div class="brand-tagline">
-      HOME <span>♥</span> LIFE
-    </div>
-  </div>
 
-  <p class="brand-description">
-    כל מה ששווה למצוא ולאהוב ✨
-  </p>
 
-</header>
+  <!-- CATEGORIES -->
+
+  <nav class="categories">
+
+    <a
+      href="/"
+      class="category-btn"
+      data-category="all">
+      ✨ הכל
+    </a>
+
+    <a
+      href="/?category=home"
+      class="category-btn"
+      data-category="home">
+      🏠 לבית
+    </a>
+
+    <a
+      href="/?category=kitchen"
+      class="category-btn"
+      data-category="kitchen">
+      🍳 מטבח
+    </a>
+
+    <a
+      href="/?category=car"
+      class="category-btn"
+      data-category="car">
+      🚗 רכב
+    </a>
+
+    <a
+      href="/?category=gadgets"
+      class="category-btn"
+      data-category="gadgets">
+      💡 גאדג'טים
+    </a>
+
+  </nav>
+
+
+
+  <!-- TITLE -->
+
+  <section class="section-title">
+
+    <h1 id="pageTitle">
+      המוצרים שמצאתי בשבילכם ♡
+    </h1>
+
+    <p>
+      הדברים שבאמת שווים את זה
+    </p>
+
+  </section>
+
+
+
+  <!-- PRODUCTS -->
+
+  <section
+    class="products"
+    id="productsContainer">
+  </section>
+
+
+
+  <footer>
+    Found & Loved ♡
+  </footer>
+
+
+</main>
+
+
+
+<!-- PRODUCTS DATABASE -->
+
+<script src="./products.js"></script>
+
+
+
+<script>
+
+  const container =
+    document.getElementById("productsContainer");
+
+  const params =
+    new URLSearchParams(window.location.search);
+
+  const selectedCategory =
+    params.get("category") || "all";
+
+
+  /* -------------------------
+     CATEGORY BUTTON
+  ------------------------- */
+
+  document
+    .querySelectorAll(".category-btn")
+    .forEach(button => {
+
+      if (
+        button.dataset.category === selectedCategory
+      ) {
+        button.classList.add("active");
+      }
+
+    });
+
+
+
+  /* -------------------------
+     GET ALL PRODUCTS
+  ------------------------- */
+
+  let allProducts = [];
+
+
+  if (typeof posts !== "undefined") {
+
+    Object.keys(posts).forEach(postId => {
+
+      const post = posts[postId];
+
+      if (
+        post &&
+        Array.isArray(post.products)
+      ) {
+
+        post.products.forEach(product => {
+
+          allProducts.push({
+            ...product,
+            postId: postId
+          });
+
+        });
+
+      }
+
+    });
+
+  }
+
+
+
+  /* -------------------------
+     FILTER
+  ------------------------- */
+
+  let productsToShow = allProducts;
+
+
+  if (selectedCategory !== "all") {
+
+    productsToShow =
+      allProducts.filter(product =>
+        product.category === selectedCategory
+      );
+
+  }
+
+
+
+  /* -------------------------
+     TITLES
+  ------------------------- */
+
+  const categoryTitles = {
+    all: "המוצרים שמצאתי בשבילכם ♡",
+    home: "הבחירות שלי לבית 🏠",
+    kitchen: "הבחירות שלי למטבח 🍳",
+    car: "הבחירות שלי לרכב 🚗",
+    gadgets: "גאדג'טים ששווה להכיר 💡"
+  };
+
+
+  document.getElementById("pageTitle").textContent =
+    categoryTitles[selectedCategory]
+    || categoryTitles.all;
+
+
+
+  /* -------------------------
+     DISPLAY PRODUCTS
+  ------------------------- */
+
+  if (productsToShow.length === 0) {
+
+    container.innerHTML = `
+      <div class="empty">
+
+        <h3>עוד רגע יהיו פה דברים שווים ♡</h3>
+
+        <p style="margin-top:8px;">
+          מוצרים חדשים יתווספו בקרוב
+        </p>
+
+      </div>
+    `;
+
+  }
+
+  else {
+
+    productsToShow.forEach(product => {
+
+      const productCard =
+        document.createElement("article");
+
+      productCard.className =
+        "product";
+
+
+      productCard.innerHTML = `
+
+        <img
+          src="${product.image}"
+          alt="${product.name}"
+          loading="lazy"
+        >
+
+        <h2>
+          ${product.name}
+        </h2>
+
+        <a
+          href="${product.link}"
+          target="_blank"
+          rel="noopener sponsored">
+
+          למוצר ב-AliExpress ←
+
+        </a>
+
+      `;
+
+
+      container.appendChild(productCard);
+
+    });
+
+  }
+
+</script>
+
+
+</body>
+</html>
