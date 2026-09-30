@@ -8,6 +8,7 @@
   <title>Found & Loved</title>
 
   <style>
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -16,46 +17,134 @@
 
     body {
       font-family: Arial, sans-serif;
-      background: #f7f3ef;
+      background: #f8f4f1;
       color: #222;
     }
 
     .container {
       max-width: 520px;
       margin: auto;
-      padding: 40px 18px 60px;
+      padding: 25px 18px 60px;
     }
 
-    header {
+
+    /* =========================
+       LOGO
+    ========================= */
+
+    .brand-header {
       text-align: center;
-      margin-bottom: 40px;
+      padding: 20px 5px 35px;
     }
 
-    .logo {
-      font-family: Georgia, serif;
-      font-size: 38px;
+    .brand-logo {
+      display: inline-block;
     }
 
-    .tagline {
-      margin-top: 8px;
-      font-size: 11px;
-      color: #888;
-      letter-spacing: 1px;
+    .logo-icon {
+      position: relative;
+      width: 100px;
+      height: 55px;
+      margin: 0 auto 2px;
     }
+
+    .roof-left,
+    .roof-right {
+      position: absolute;
+      top: 25px;
+      width: 57px;
+      height: 3px;
+      background: #d99a8b;
+    }
+
+    .roof-left {
+      left: 2px;
+      transform: rotate(-35deg);
+    }
+
+    .roof-right {
+      right: 2px;
+      transform: rotate(35deg);
+    }
+
+    .logo-heart {
+      position: absolute;
+      right: 0;
+      top: 0;
+      font-size: 29px;
+      color: #d99a8b;
+      transform: rotate(8deg);
+    }
+
+    .brand-name {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 42px;
+      font-weight: 500;
+      letter-spacing: -2px;
+      direction: ltr;
+      white-space: nowrap;
+    }
+
+    .brand-name .amp {
+      color: #d99a8b;
+      font-style: italic;
+      padding: 0 3px;
+    }
+
+    .brand-divider {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin: 13px 0 8px;
+    }
+
+    .brand-divider .line {
+      height: 1px;
+      width: 65px;
+      background: #d99a8b;
+    }
+
+    .brand-divider .heart {
+      color: #d99a8b;
+      font-size: 12px;
+    }
+
+    .brand-tagline {
+      direction: ltr;
+      font-size: 10px;
+      letter-spacing: 5px;
+      color: #444;
+    }
+
+    .brand-tagline span {
+      color: #d99a8b;
+    }
+
+
+    /* =========================
+       POST TITLE
+    ========================= */
 
     .post-header {
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 28px;
     }
 
     .post-header h1 {
-      font-size: 24px;
+      font-size: 23px;
       margin-bottom: 8px;
     }
 
     .post-header p {
       color: #777;
+      font-size: 14px;
     }
+
+
+    /* =========================
+       PRODUCTS
+    ========================= */
 
     .products {
       display: flex;
@@ -65,9 +154,9 @@
 
     .product {
       background: white;
-      padding: 14px;
+      padding: 13px;
       border-radius: 22px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
     }
 
     .product img {
@@ -79,7 +168,7 @@
     }
 
     .product h2 {
-      font-size: 18px;
+      font-size: 17px;
       margin: 16px 5px;
     }
 
@@ -92,24 +181,44 @@
       text-align: center;
       text-decoration: none;
       font-weight: bold;
+      transition: 0.2s;
     }
+
+    .product a:hover {
+      background: #d99a8b;
+    }
+
+
+    /* =========================
+       MORE PRODUCTS
+    ========================= */
 
     .more {
       text-align: center;
       margin-top: 45px;
       padding-top: 30px;
-      border-top: 1px solid #ddd;
+      border-top: 1px solid #eaded8;
     }
 
     .more p {
       font-weight: bold;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
 
     .more a {
-      color: #222;
+      display: inline-block;
+      background: #d99a8b;
+      color: white;
+      padding: 12px 22px;
+      border-radius: 30px;
+      text-decoration: none;
       font-weight: bold;
     }
+
+
+    /* =========================
+       ERROR
+    ========================= */
 
     .error {
       background: white;
@@ -118,13 +227,37 @@
       text-align: center;
     }
 
+    .error a {
+      color: #d99a8b;
+      font-weight: bold;
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
     footer {
       margin-top: 45px;
       text-align: center;
-      color: #999;
+      color: #aaa;
       font-size: 11px;
-      line-height: 1.6;
     }
+
+
+    @media (max-width: 480px) {
+
+      .brand-name {
+        font-size: 36px;
+      }
+
+      .brand-tagline {
+        font-size: 9px;
+        letter-spacing: 4px;
+      }
+
+    }
+
   </style>
 </head>
 
@@ -133,28 +266,51 @@
 
 <main class="container">
 
-  <header>
-    <div class="logo">Found & Loved</div>
 
-    <div class="tagline">
-      THINGS WORTH FINDING • THINGS YOU'LL LOVE
+  <!-- LOGO -->
+
+  <header class="brand-header">
+
+    <div class="brand-logo">
+
+      <div class="logo-icon">
+        <span class="roof-left"></span>
+        <span class="roof-right"></span>
+        <span class="logo-heart">♡</span>
+      </div>
+
+      <div class="brand-name">
+        Found <span class="amp">&</span> Loved
+      </div>
+
+      <div class="brand-divider">
+        <span class="line"></span>
+        <span class="heart">♥</span>
+        <span class="line"></span>
+      </div>
+
+      <div class="brand-tagline">
+        HOME <span>♥</span> LIFE
+      </div>
+
     </div>
+
   </header>
 
+
+  <!-- CONTENT -->
 
   <div id="content"></div>
 
 
   <footer>
-    חלק מהקישורים באתר הם קישורי שותפים.
-    ייתכן שאקבל עמלה על רכישה דרך הקישורים,
-    ללא עלות נוספת עבורך.
+    Found & Loved ♡
   </footer>
+
 
 </main>
 
 
-<!-- טוען את מאגר המוצרים -->
 <script src="./products.js"></script>
 
 
@@ -170,7 +326,8 @@
     params.get("post");
 
 
-  // בדיקה שהמאגר נטען ושהפוסט קיים
+  /* CHECK POST */
+
   if (
     typeof posts === "undefined" ||
     !postId ||
@@ -178,6 +335,7 @@
   ) {
 
     content.innerHTML = `
+
       <div class="error">
 
         <h2>לא מצאנו את המוצרים 😕</h2>
@@ -193,6 +351,7 @@
         </p>
 
       </div>
+
     `;
 
   }
@@ -209,11 +368,13 @@
     selectedPost.products.forEach(product => {
 
       productsHTML += `
+
         <article class="product">
 
           <img
             src="${product.image}"
             alt="${product.name}"
+            loading="lazy"
           >
 
           <h2>
@@ -230,6 +391,7 @@
           </a>
 
         </article>
+
       `;
 
     });
