@@ -8,7 +8,7 @@ const posts = {
       {
         name: "תג איתור חכם לחפצים",
         category: "home",
-        image: "locator.png",
+        image: "./locator.png",
         link: "https://s.click.aliexpress.com/e/_c3pb7EHj"
       }
     ]
