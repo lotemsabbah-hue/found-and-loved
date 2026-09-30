@@ -128,7 +128,7 @@
 
     .post-header {
       text-align: center;
-      margin-bottom: 28px;
+      margin-bottom: 24px;
     }
 
     .post-header h1 {
@@ -147,39 +147,43 @@
     ========================= */
 
     .products {
-      display: flex;
-      flex-direction: column;
-      gap: 22px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
     }
 
     .product {
       background: white;
-      padding: 13px;
-      border-radius: 22px;
+      padding: 9px;
+      border-radius: 17px;
       box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+      overflow: hidden;
     }
 
     .product img {
       width: 100%;
       aspect-ratio: 1 / 1;
       object-fit: cover;
-      border-radius: 16px;
+      border-radius: 12px;
       display: block;
     }
 
     .product h2 {
-      font-size: 17px;
-      margin: 16px 5px;
+      font-size: 14px;
+      line-height: 1.4;
+      margin: 10px 3px;
+      min-height: 40px;
     }
 
     .product a {
       display: block;
       background: #222;
       color: white;
-      padding: 14px;
-      border-radius: 12px;
+      padding: 10px 5px;
+      border-radius: 10px;
       text-align: center;
       text-decoration: none;
+      font-size: 12px;
       font-weight: bold;
       transition: 0.2s;
     }
@@ -245,7 +249,16 @@
     }
 
 
+    /* =========================
+       MOBILE
+    ========================= */
+
     @media (max-width: 480px) {
+
+      .container {
+        padding-left: 12px;
+        padding-right: 12px;
+      }
 
       .brand-name {
         font-size: 36px;
@@ -254,6 +267,30 @@
       .brand-tagline {
         font-size: 9px;
         letter-spacing: 4px;
+      }
+
+      .products {
+        gap: 10px;
+      }
+
+      .product {
+        padding: 7px;
+        border-radius: 15px;
+      }
+
+      .product img {
+        border-radius: 10px;
+      }
+
+      .product h2 {
+        font-size: 13px;
+        margin: 8px 2px;
+        min-height: 37px;
+      }
+
+      .product a {
+        font-size: 11px;
+        padding: 9px 3px;
       }
 
     }
